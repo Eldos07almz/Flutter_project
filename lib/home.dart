@@ -1,6 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'screens/CarsCatalogPage.dart'; // Импортируем страницу каталога машин
+import 'screens/CarsCatalogPage.dart';
+import 'screens/UIPage.dart';
+import 'screens/NamesPage.dart';
 
 class HomePage extends StatelessWidget {
   static const String route = '/home';
@@ -16,7 +17,10 @@ class HomePage extends StatelessWidget {
         ),
         centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 30, 40, 50),
-        iconTheme: const IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(
+          color: Colors.blueAccent,
+          size: 20,
+        ),
       ),
       backgroundColor: const Color.fromARGB(255, 28, 35, 45),
       body: SingleChildScrollView(
@@ -25,26 +29,7 @@ class HomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Container(
-                height: 50,
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 128, 64, 64),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: const Center(
-                  child: Text(
-                    "Сегодня",
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Color.fromARGB(255, 240, 230, 200),
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
-
               const SizedBox(height: 20),
-              // Добавляем кнопку для перехода в каталог машин
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 100, 160, 100),
@@ -57,8 +42,7 @@ class HomePage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>
-                          CarsCatalogPage(), // Переход на страницу каталога машин
+                      builder: (context) => CarsCatalogPage(),
                     ),
                   );
                 },
@@ -68,45 +52,50 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              // Остальная разметка с контейнерами
-              Container(
-                height: 100,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: const Color.fromARGB(255, 50, 60, 70),
+              // Новая кнопка для перехода на страницу AllInOne UI Kit
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 80, 120, 180),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  padding: const EdgeInsets.symmetric(vertical: 16),
                 ),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 100, 140, 180),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        height: double.infinity,
-                      ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          UIPage(), // Переход на новую страницу
                     ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 100, 160, 100),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        height: double.infinity,
-                      ),
+                  );
+                },
+                child: const Text(
+                  "Открыть AllInOne UI Kit",
+                  style: TextStyle(fontSize: 16, color: Colors.white),
+                ),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 74, 23, 14),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          NamesPage(), // Переход на новую страницу
                     ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 180, 80, 80),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        height: double.infinity,
-                      ),
-                    ),
-                  ],
+                  );
+                },
+                child: const Text(
+                  "NamesPage",
+                  style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ),
             ],

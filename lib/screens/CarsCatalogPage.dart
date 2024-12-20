@@ -23,7 +23,7 @@ class _CarsCatalogPageState extends State<CarsCatalogPage> {
       appBar: AppBar(
         title: const Text('Каталог машин'),
         centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 30, 40, 50),
+        backgroundColor: const Color.fromARGB(255, 219, 221, 224),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
